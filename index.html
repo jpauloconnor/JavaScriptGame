@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <p><img id="myImage" onclick="changeImage()" src="" width="200" height="150"></p>
+    <p>Javascript Monster Adventure Game</p>
+    <p>You see a doorway and there is a giant monster. What do you do?</p>
+    <p id="demo"></p>
+    <p id="yes"></p>
+    <p id="no"></p>
+<ul>
+    <p><button onclick="attackMonster()"> Attack
+    </button></p>
+</ul>
+
+
+
+<script>
+
+var attack = true;
+var attackPoints = 10;
+var talk=true;
+var challenge=true;
+var silent=true;`
+
+var attackPoints = 10;
+
+function attackMonster()
+{
+    document.getElementById("demo").innerHTML = "Are you sure you want to attack?";   
+    createYesNoButtons();
+    
+}
+
+function createYesNoButtons()
+{
+    document.getElementById("yes").innerHTML = '<button onClick="func()">Yes</button>';
+
+    document.getElementById("no").innerHTML = '<button onClick="func()">No</button>';
+}
+/*
+function buttonFunction(){
+     document.getElementById("buttonAppear").innerHTML = '<button onclick="secondFunction()">Some text here</button>';
+}
+*/
+function areYouSure()
+{
+    document.getElementById("yes").innerHTML = "";
+
+}
+
+function myFunction01() 
+{
+    
+        document.getElementById("demo").innerHTML =
+        "You attack for: " + attackPoints;   
+}
+
+ 
+
+</script>
+</body>
+</html>
