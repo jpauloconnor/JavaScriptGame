@@ -22,29 +22,30 @@ var attack = true;
 var attackPoints = 10;
 var talk=true;
 var challenge=true;
-var silent=true;`
+var silent=true;
 
 var attackPoints = 10;
 
 var player = {
-    healthTotal : 100
+    healthTotal : 100,
 
     updatePlayerHealth : function()
     {
-        return healthTotal;
-    }
+        document.getElementById("playerhealth").innerHTML = healthTotal;
+    },
     lifeIncrease : function()
     {
+        var health = this.healthTotal
         return health + 10;
-    }
+    },
     lifeDecrease : function()
     {
-        return health - 10;
+        return healthTotal.player - 10;
     }
 };
 
 
-
+ 
 var monster = {
     health : 100
 }
