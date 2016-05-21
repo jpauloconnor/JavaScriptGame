@@ -7,6 +7,8 @@
     <p id="demo"></p>
     <p id="yes"></p>
     <p id="no"></p>
+    <p id="playerhealth"></p>
+    <p id="trollHealth"></p>
 <ul>
     <p><button onclick="attackMonster()"> Attack
     </button></p>
@@ -24,39 +26,62 @@ var silent=true;`
 
 var attackPoints = 10;
 
+var player = {
+    healthTotal : 100
+
+    updatePlayerHealth : function()
+    {
+        return healthTotal;
+    }
+    lifeIncrease : function()
+    {
+        return health + 10;
+    }
+    lifeDecrease : function()
+    {
+        return health - 10;
+    }
+};
+
+
+
+var monster = {
+    health : 100
+}
+
 function attackMonster()
 {
     document.getElementById("demo").innerHTML = "Are you sure you want to attack?";   
-    createYesNoButtons();
-    
+    createYesNoButtons();   
 }
 
 function createYesNoButtons()
 {
-    document.getElementById("yes").innerHTML = '<button onClick="func()">Yes</button>';
-
-    document.getElementById("no").innerHTML = '<button onClick="func()">No</button>';
-}
-/*
-function buttonFunction(){
-     document.getElementById("buttonAppear").innerHTML = '<button onclick="secondFunction()">Some text here</button>';
-}
-*/
-function areYouSure()
-{
-    document.getElementById("yes").innerHTML = "";
-
+    document.getElementById("yes").innerHTML = '<button onClick="attackWorked()">Yes</button>';
+    document.getElementById("no").innerHTML = '<button onClick="attackFailed()">No</button>';
 }
 
-function myFunction01() 
-{
-    
+
+function attackWorked() 
+{    
         document.getElementById("demo").innerHTML =
-        "You attack for: " + attackPoints;   
+        "The attack worked! You attack for: " + attackPoints + player.lifeIncrease();   
 }
 
+function attackFailed() 
+{    
+        document.getElementById("demo").innerHTML =
+        "The attack failed! The troll hit you in the back: " + attackPoints + player.lifeIncrease();   
+}
  
 
+ //Ideas
+ /*
+function areYouSure()
+{
+    document.getElementById("yes").innerHTML = ;
+
+}*/
 </script>
 </body>
 </html>
