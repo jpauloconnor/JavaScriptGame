@@ -3,20 +3,40 @@
 <body>
     <p><img id="myImage" onclick="changeImage()" src="" width="200" height="150"></p>
     <p>Javascript Monster Adventure Game</p>
+    <h1>Player Stats</h1>
+    <p id="name"></p>
+    <p id="playerHealth"></p>
+    <p id="playerAttack"></p>
+
+    <h1>The Game</h1>
     <p>You see a doorway and there is a giant monster. What do you do?</p>
     <p id="demo"></p>
     <p id="yes"></p>
     <p id="no"></p>
-    <p id="playerhealth"></p>
+
+
     <p id="trollHealth"></p>
 <ul>
-    <p><button onclick="attackMonster()"> Attack
-    </button></p>
+    <p><button onclick="attackMonster()"> Attack </button></p>
 </ul>
 
+    <h1>Player Info</h1>
+    <form action = "#">
+        <input type = "text" id="field" value="" onChange="enterPlayerName()">
+    </form>
 
 
 <script>
+
+//TODO
+//MAKE A PLAYER OBJECT 
+//SHOW PLAYER OBJECT IN A TABLE
+//SHOW THE OBJECT DETAILS
+//MAKE A TROLL OBJECT
+//SHOW THE DETAILS
+//CREATE ATTACK BUTTONS
+//UPDATE PLAYER HEALTH
+
 
 var attack = true;
 var attackPoints = 10;
@@ -27,22 +47,52 @@ var silent=true;
 var attackPoints = 10;
 
 var player = {
-    healthTotal : 100,
+    playerName    : "Default Name",
+    healthTotal   : 100,
+    attack        : 10,
+    defense       : 10,
+
+    ToString  : function() {
+        var name = this.playerName;
+        return name;
+    },
 
     updatePlayerHealth : function()
     {
-        document.getElementById("playerhealth").innerHTML = healthTotal;
+        var health = this.healthTotal;
+        return health;
     },
+
     lifeIncrease : function()
     {
-        var health = this.healthTotal
+        var health = this.healthTotal;
         return health + 10;
     },
+    
     lifeDecrease : function()
     {
         return healthTotal.player - 10;
     }
 };
+
+var newPlayer = Object.create(player);
+newPlayer.playerName = "Paul";
+newPlayer.healthTotal = 20;
+
+
+
+document.getElementById("name").innerHTML = "Name :" + newPlayer.ToString();
+document.getElementById("playerHealth").innerHTML = "Points:" + newPlayer.updatePlayerHealth(); 
+
+
+
+function enterPlayerName(){
+    document.getElementById("field").innerHTML = "This will be for entering a new player name";
+}
+
+
+//Prototype player object
+
 
 
  
@@ -66,7 +116,8 @@ function createYesNoButtons()
 function attackWorked() 
 {    
         document.getElementById("demo").innerHTML =
-        "The attack worked! You attack for: " + attackPoints + player.lifeIncrease();   
+        "The attack worked! You attack for: " + attackPoints;
+
 }
 
 function attackFailed() 
